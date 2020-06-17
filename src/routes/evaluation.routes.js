@@ -19,7 +19,7 @@ router.post('/new-evaluation', async (req, res)=>{
 
 router.get('/all-evaluations', async(req, res)=>{
    try {
-      let evaluationsDB = await Evaluation.find();
+      let evaluationsDB = await Evaluation.find().sort({total_score: -1});
      
       res.json({status: 'OK', evaluationsDB});
    } catch (error) {
